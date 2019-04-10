@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+
+<body>
+	<h2>Given a string str and an array of strings strArr[], the task is to sort the array according to the alphabetical order defined by str.</h2>
+	<br>
+	<h2>Output is</h2>
+	<h3 id="result"></h3>
+	<script>
+		var str = "fguecbdavwyxzhijklmnopqrst";
+		var stringArray =  ["geeksforgeeks" , "is" , "the" , "best" , "place" , "for" , "learning"];
+		var output = "", index = 0, arrIterator = 0;
+
+		for(index = 0; index < str.length; index++  )
+		{
+			for(arrIterator = 0; arrIterator < stringArray.length; arrIterator++)
+			{
+				if(str.charAt(index) == stringArray[arrIterator].charAt(0))
+				{
+					output = output + " " + stringArray[arrIterator];
+				}
+			}
+		}
+		
+		document.getElementById("result").innerHTML = output;	
+	</script>
+</body>
+</html>

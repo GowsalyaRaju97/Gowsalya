@@ -1,0 +1,90 @@
+<html>
+<head>
+</head>
+<body>
+	<h2>Make all numbers of an array equal. Given an array arr[], the task is to make all the array 
+	elements equal with the given operation. In a single operation, any element of the array can be either 
+	multiplied by 2 or by 3. If it’s possible to make all the array elements equal with the given 
+	operation then print Yes else print No.<br>a. Input: arr[] = {50, 75, 100}<br>
+	b. Output: Yes {50 * 2 * 3, 75 * 2 * 2, 100 * 3} = {300, 300, 300}<br>c. Input: arr[] = {10, 14}<br>
+	d. Output: No</h2>
+	<br><br>
+	<h2>Given array</h2>
+	<h3 id="input"></h3>
+	<h2>Output</h2>
+	<h3 id="status"></h3>
+	<h3 id="output"></h3>
+	<script>
+		var array = [60, 70, 120];
+		var arrLength = array.length;
+		
+		document.getElementById("input").innerHTML = array;
+		
+		if(makeEqual(array , arrLength))
+		{
+			document.getElementById("status").innerHTML = "Yes";
+		}
+		else
+		{
+			document.getElementById("status").innerHTML = "No";
+		}
+		
+		function makeEqual(array , arrLength)
+		{
+			var countTwo = 0 , countThree = 0 , iterator = 0;
+			
+			for(iterator = 0; iterator < arrLength; iterator++)
+			{
+				while(array[iterator] % 2 == 0)
+				{
+					array[iterator] /= 2;
+					countTwo++;
+				}
+				while(array[iterator] % 3 == 0)
+				{
+					array[iterator] /= 3;
+					countThree++;
+				}
+			}
+			
+			if(countTwo % 2 == 0)
+			{
+				countTwo /= 2;
+			}
+			else
+			{
+				countTwo = parseInt(countTwo/2);
+				countTwo++;
+			}
+			
+			if(countThree % 2 == 0)
+			{
+				countThree /= 2;
+			}
+			else
+			{
+				countThree = parseInt(countThree/2);;
+				countThree++;
+			}
+			
+			for (iterator = 1; iterator < arrLength; iterator++)  
+        { 
+            if (array[iterator] != array[0]) 
+            { 
+                return false; 
+            } 
+        }
+			
+			for(iterator = 0; iterator < arrLength; iterator++)
+			{
+				array[iterator] = array[iterator] * (2 * countTwo) * (3 * countThree);
+ 
+			}
+			
+			document.getElementById("output").innerHTML = array;
+			return true;
+			
+		}
+	</script>
+</body>
+</html>
